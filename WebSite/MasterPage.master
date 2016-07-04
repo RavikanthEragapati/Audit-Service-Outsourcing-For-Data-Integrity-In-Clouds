@@ -1,0 +1,438 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        
+        /* begin Menu */
+/* menu structure */
+
+.art-menu a, .art-menu a:link, .art-menu a:visited, .art-menu a:hover
+{
+	text-align:left;
+	text-decoration:none;
+	outline:none;
+	letter-spacing:normal;
+	word-spacing:normal;
+}
+
+.art-menu, .art-menu ul
+{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	list-style-type: none;
+	display: block;
+}
+
+.art-menu li
+{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	display: block;
+	float: left;
+	position: relative;
+	z-index: 5;
+	background:none;
+}
+
+.art-menu li:hover
+{
+	z-index: 10000;
+	white-space: normal;
+}
+
+.art-menu li li
+{
+	float: none;
+}
+
+.art-menu ul
+{
+	visibility: hidden;
+	position: absolute;
+	z-index: 10;
+	left: 0;
+	top: 0;
+	background:none;
+}
+
+.art-menu li:hover>ul
+{
+	visibility: visible;
+	top: 100%;
+}
+
+.art-menu li li:hover>ul
+{
+	top: 0;
+	left: 100%;
+}
+
+.art-menu:after, .art-menu ul:after
+{
+	content: ".";
+	height: 0;
+	display: block;
+	visibility: hidden;
+	overflow: hidden;
+	clear: both;
+}
+.art-menu, .art-menu ul
+{
+	min-height: 0;
+}
+
+.art-menu ul
+{
+	background-image: url(images/spacer.gif);
+	padding: 10px 30px 30px 30px;
+	margin: -10px 0 0 -30px;
+}
+
+.art-menu ul ul
+{
+	padding: 30px 30px 30px 10px;
+	margin: -30px 0 0 -10px;
+}
+
+
+
+
+
+/* menu structure */
+
+.art-menu
+{
+	padding: 0px 0px 0px 0px;
+}
+
+.art-nav
+{
+	position: relative;
+	height: 23px;
+	z-index: 100;
+            top: 9px;
+            left: 4px;
+            margin-top: 0px;
+        }
+
+/* end Menu */
+
+/* begin MenuItem */
+.art-menu ul li
+{
+	clear: both;
+}
+
+.art-menu a
+{
+	position:relative;
+	display: block;
+	overflow:hidden;
+	height: 23px;
+	cursor: pointer;
+	text-decoration: none;
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+/*
+.art-menu a .r, .art-menu a .l
+{
+	position:absolute;
+	display: block;
+	top:0;
+	z-index:-1;
+	height: 69px;
+	background-image: url('images/MenuItem.png');
+}
+*/
+.art-menu a .t 
+{
+font-family: Arial, Helvetica, Sans-Serif;
+font-size: 12px;
+font-style: normal;
+font-weight: normal;
+	color: #D2D6D1;
+	padding: 0 22px;
+	margin: 0 0px;
+	line-height: 23px;
+	text-align: center;
+}
+
+.art-menu a:hover .l, .art-menu a:hover .r
+{
+	top:-23px;
+}
+
+.art-menu li:hover>a .l, .art-menu li:hover>a .r
+{
+	top:-23px;
+}
+
+.art-menu li:hover a .l, .art-menu li:hover a .r
+{
+	top:-23px;
+}
+.art-menu a:hover .t
+{
+	color: #232622;
+}
+
+.art-menu li:hover a .t
+{
+	color: #232622;
+}
+
+.art-menu li:hover>a .t
+{
+	color: #232622;
+}
+
+
+
+/* end MenuItem */
+
+/* begin MenuSeparator */
+.art-nav .art-menu-separator
+{
+	display: block;
+	width: 1px;
+	height: 23px;
+	background-image: url('images/MenuSeparator.png');
+}
+
+/* end MenuSeparator */
+
+/* begin MenuSubItem */
+.art-menu ul a
+{
+	display:block;
+	text-align: center;
+	white-space: nowrap;
+	height: 32px;
+	width: 180px;
+	overflow:hidden;
+	line-height: 32px;
+	margin-right: auto;
+
+
+	background-image: url('images/subitem-bg.png');
+	background-position: left top;
+	background-repeat: repeat-x;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #E4C144;
+}
+
+.art-nav ul.art-menu ul span, .art-nav ul.art-menu ul span span
+{
+	display: inline;
+	float: none;
+	margin: inherit;
+	padding: inherit;
+	background-image: none;
+	text-align: inherit;
+	text-decoration: inherit;
+}
+
+.art-menu ul a, .art-menu ul a:link, .art-menu ul a:visited, .art-menu ul a:hover, .art-menu ul a:active, .art-nav ul.art-menu ul span, .art-nav ul.art-menu ul span span
+{
+	text-align: left;
+	text-indent: 12px;
+	text-decoration: none;
+	line-height: 32px;
+	color: #474024;
+font-family: Arial, Helvetica, Sans-Serif;
+font-size: 12px;
+font-style: normal;
+font-weight: normal;
+}
+
+.art-menu ul ul a
+{
+	margin-left: auto;
+}
+
+.art-menu ul li a:hover
+{
+	color: #F8F7F1;
+	border-color: #8E988B;
+	background-position: 0 -32px;
+}
+
+.art-menu ul li:hover>a
+{
+	color: #F8F7F1;
+	border-color: #8E988B;
+	background-position: 0 -32px;
+}
+
+.art-nav .art-menu ul li a:hover span, .art-nav .art-menu ul li a:hover span span
+{
+	color: #F8F7F1;
+}
+
+.art-nav .art-menu ul li:hover>a span, .art-nav .art-menu ul li:hover>a span span
+{
+	color: #F8F7F1;
+}
+
+
+/* end MenuSubItem */
+
+        
+        
+        .style1
+        {
+            width: 100%;
+        }
+        .style2
+        {
+            height: 34px;
+        }
+        .style3
+        {
+            height: 448px;
+        }
+        .style4
+        {
+            height: 83px;
+        }
+        .style5
+        {
+            height: 36px;
+        }
+        .style6
+        {
+            height: 448px;
+            width: 222px;
+        }
+        .style7
+        {
+            height: 448px;
+            width: 958px;
+        }
+        .style8
+        {
+            height: 33px;
+            width: 222px;
+        }
+        .style9
+        {
+            height: 33px;
+            width: 958px;
+        }
+        .style10
+        {
+            height: 33px;
+        }
+        .style11
+        {
+            height: 83px;
+            width: 222px;
+        }
+        .style12
+        {
+            height: 34px;
+            width: 222px;
+        }
+    </style>
+</head>
+<body background="images/bgpic.jpg" style="background-repeat:repeat-x; ";>
+    <form id="form1" runat="server">
+    <div>
+        <table align="center" class="style1" frame="void" width="100%" cellspacing="0">
+            <tr>
+                <td align="center" class="style5" colspan="3">
+                </td>
+            </tr>
+            <tr>
+                <td align="center" class="style11" width="15%">
+                    </td>
+                <td align="center" class="style4" bgcolor="White" width="70%">
+                    <asp:Image ID="Image1" runat="server" Height="141px" 
+                        ImageUrl="~/images/Untitled.jpg" Width="964px" ImageAlign="Top" 
+                        style="margin-left: 0px; margin-top: 0px" />
+                </td>
+                <td align="center" class="style4" width="15%">
+                    </td>
+            </tr>
+            <tr>
+                <td class="style8" style="vertical-align: top" width="15%">
+                    </td>
+                <td class="style9" style="vertical-align: top" bgcolor="#CC3300" width="70%">
+               <!--menu-->
+               <div class="art-nav">
+                	<ul class="art-menu">
+                		<li>
+                			<a href="home.aspx"><span class="l"></span><span class="r"></span><span class="t">Home</span></a>
+                		</li>		
+                		<li>
+                			<a href="reg.aspx"><span class="l"></span><span class="r"></span><span class="t">New User</span></a>
+                		</li>
+                        <li>
+                			<a href="search.aspx"><span class="l"></span><span class="r"></span><span class="t">Search</span></a>
+                		</li>
+                        <li>
+                			<a href="abtp.aspx"><span class="l"></span><span class="r"></span><span class="t">About Project</span></a>
+                		</li>
+                        <li>
+                			<a href="abtg.aspx"><span class="l"></span><span class="r"></span><span class="t">About Guide</span></a>
+                		</li>
+                        <li>
+                			<a href="abtt.aspx"><span class="l"></span><span class="r"></span><span class="t">About Team</span></a>
+                		</li>
+                        <li>
+                			<a href="abti.aspx"><span class="l"></span><span class="r"></span><span class="t">About Indoos</span></a>
+                		</li>
+                	</ul>
+                </div>
+               <!--end menu-->
+                    &nbsp;</td>
+                <td class="style10" style="vertical-align: top" width="15%">
+                    </td>
+            </tr>
+            <tr>
+                <td class="style8" style="vertical-align: top" width="15%">
+                    &nbsp;</td>
+                <td class="style9" style="vertical-align: top" bgcolor="White" width="70%">
+                <marquee>Efficent Audit Service Outsourcing For Data Integrity In Cloud Computing</marquee>
+                    &nbsp;</td>
+                <td class="style10" style="vertical-align: top" width="15%">
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="style6" height="100%" style="vertical-align: top" width="15%">
+                    &nbsp;</td>
+                <td class="style7" height="100%" style="vertical-align: top" bgcolor="White" 
+                    width="70%">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </td>
+                <td class="style3" height="100%" style="vertical-align: top" width="15%">
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td align="center" class="style12" width="15%">
+                    &nbsp;</td>
+                <td align="center" class="style2" colspan="0" bgcolor="#CC3300">
+                    <asp:Label ID="Label1" runat="server" Text="Powered by" Height="16px" 
+                        Width="9%"></asp:Label>
+                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="http://www.indoos.com/">INDOOS</asp:HyperLink>
+&nbsp;</td>
+                <td align="center" class="style2" width="15%">
+                    &nbsp;</td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>
